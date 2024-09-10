@@ -14,6 +14,7 @@ import Journal from './Components/Page/Journal';
 import SignUp from './Components/Page/SignUp';
 import Login from './Components/Page/Login';
 import ProductDetails from './Components/Page/ProductDetails';
+import Test from './Components/Page/Test';
 
 
 const router = createBrowserRouter(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path='/journal' element ={<Journal />} > </Route>   
       <Route path='/sign/up' element ={<SignUp/>} > </Route>   
       <Route path='/login' element ={<Login/>} > </Route>   
+      <Route path='/test' element ={<Test/>} > </Route>   
     </Route>
   )
 );

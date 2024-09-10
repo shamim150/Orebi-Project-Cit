@@ -7,9 +7,9 @@ import { FaFacebook } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-[#F5F5F3] pt-12 pb-12" >
+    <div className="bg-[#F5F5F3] pt-14 pb-12" >
       <Container>
-        <div className="mt-24 mb-11 grid grid-cols-7 gridr">
+        <div className=" mb-11 grid grid-cols-7 gridr">
           <div className="col-span-1 ">
             <h4 className="font-bold font-DM text-base leading-6 text-Primary mb-4">
               Menu

@@ -7,6 +7,7 @@ import { VscTriangleDown } from "react-icons/vsc";
 import { FaPlus } from "react-icons/fa";
 import { TiMinus } from "react-icons/ti";
 import ButtonLarge from "../Layer/ButtonLarge";
+import Input from "../Layer/Input";
 
 const ProductDetails = () => {
   let [show, setShow] = useState(false);
@@ -15,6 +16,8 @@ const ProductDetails = () => {
   let [quantity, setQuantity] = useState(1);
 
   let [accordiant, setAccordiant] = useState(false);
+
+  let [shipping, setShipping] = useState(false);
 
   let manageSize = (element) => {
     setSize(element.target.value);
@@ -166,11 +169,22 @@ const ProductDetails = () => {
             <ButtonLarge ButtonLargeText="Add to Cart" />
           </div>
 
-          <div>
+          <div className="py-6 border-b border-t border-[#D8D8D8]">
             <ul>
               <li>
-                <p onClick={()=> setAccordiant(!accordiant)} className="py-3 px-5 bg-slate-200 cursor-pointer text-Primary font-bold font-DM text-base ">FEATURES & DETAILS</p>
-                <div className={`bg-orange-300 transition-all duration-300  ${accordiant ? 'h-auto p-5 overflow-auto' : 'h-0 p-0 overflow-hidden' } `}>
+                <p
+                  onClick={() => setAccordiant(!accordiant)}
+                  className="py-3 px-5 cursor-pointer text-Primary font-bold font-DM text-base "
+                >
+                  FEATURES & DETAILS
+                </p>
+                <div
+                  className={`bg-orange-300 transition-all duration-600  ${
+                    accordiant
+                      ? "h-auto p-5 overflow-auto"
+                      : "h-0 p-0 overflow-hidden"
+                  } `}
+                >
                   <b>Lorem ipsum dolor sit amet.</b>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -178,15 +192,117 @@ const ProductDetails = () => {
                     tempore praesentium officiis veritatis alias quod, qui
                     commodi maxime nisi explicabo iusto perspiciatis quasi
                     tempora.
-                    lorem500
                   </p>
                 </div>
               </li>
             </ul>
           </div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tenetur alias id nisi, delectus facilis laborum! Corporis, inventore tempora tempore ratione at possimus! Possimus, mollitia ipsam. Laudantium debitis tempora ipsa omnis ducimus? Provident eveniet molestias iste illum, illo dolorem accusamus enim consequatur velit perspiciatis consectetur ipsam eos suscipit odio fuga.
-            lorem500
+
+          <div className="py-6 border-b  border-[#D8D8D8]">
+            <ul>
+              <li>
+                <p
+                  onClick={() => setShipping(!shipping)}
+                  className="py-3 px-5 cursor-pointer text-Primary font-bold font-DM text-base "
+                >
+                  SHIPPING & RETURNS
+                </p>
+                <div
+                  className={`bg-orange-300 transition-all duration-600  ${
+                    shipping
+                      ? "h-auto p-5 overflow-auto"
+                      : "h-0 p-0 overflow-hidden"
+                  } `}
+                >
+                  <b>Lorem ipsum dolor sit amet.</b>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Excepturi labore molestias error neque velit quibusdam
+                    tempore praesentium officiis veritatis alias quod, qui
+                    commodi maxime nisi explicabo iusto perspiciatis quasi
+                    tempora.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+            tenetur alias id nisi, delectus facilis laborum! Corporis, inventore
+            tempora tempore ratione at possimus! Possimus, mollitia ipsam.
+            Laudantium debitis tempora ipsa omnis ducimus? Provident eveniet
+            molestias iste illum, illo dolorem accusamus enim consequatur velit
+            perspiciatis consectetur ipsam eos suscipit odio fuga.
           </p>
+        </div>
+
+        <div>
+          <div className="review mt-24 ">
+            <div className="text flex gap-16 mb-10">
+              <p className="text-Secondary font-DM text-xl leading-7">
+                Description
+              </p>{" "}
+              <span className="text-Primary font-DM text-xl font-bold ">
+                Reviews (1)
+              </span>
+            </div>
+            <p className="text-Secondary font-DM text-sm leading-7 border-b  border-[#D8D8D8] pb-4 ">
+              1 review for Product
+            </p>
+          </div>
+
+          <div className="flex items-center gap-9 mt-6">
+            <p className="text-Primary font-DM text-base leading-7">
+              {" "}
+              John Ford{" "}
+            </p>
+            <div className="flex gap-x-1 text-[#FFD881]">
+              <IoStar />
+              <IoStar />
+              <IoStar />
+              <IoStar />
+              <IoStar />
+            </div>
+          </div>
+          <p className="mt-4 text-Secondary font-DM text-base leading-7 border-b  border-[#D8D8D8] pb-4 ">
+            {" "}
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+
+          <div className="max-w-[780px] ">
+            <p className="text-Primary font-DM text-xl font-bold mt-12">
+              Add a Review
+            </p>
+
+            <Input 
+            className='mt-12'
+            labelText="Name" 
+            placeholder='Name'   
+            type='text'   
+            id='Name'      
+            />
+            <Input 
+            className='mt-6'
+            labelText="Email" 
+            placeholder='Your email here'   
+            type='Email'   
+            id='Email'      
+            />
+            <Input 
+            className='mt-6 pb-20'
+            labelText="Review" 
+            placeholder='Your review here'   
+            type='text'   
+            id='Review'      
+            />
+          </div>
+          <ButtonLarge className='mt-7 mb-32' ButtonLargeText='Post' />
         </div>
       </Container>
     </div>

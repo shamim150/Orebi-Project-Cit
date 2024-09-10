@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 import ProductsItem from "./ProductsItem";
+import VerticalProductItem from "../VerticalProductItem";
 
 const items = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -15,24 +16,54 @@ const items = [
   6, 7, 8, 9, 10, 11, 12, 13, 14,
 ];
 
-function Items({ currentItems }) {
+function Items({ currentItems, show }) {
+
+ 
+
+
   return (
+
+
+
     <>
       {currentItems &&
         currentItems.map((item, i) => (
-          <ProductsItem 
+
+
+            show? 
+            <ProductsItem 
             pName="Brackers"
             brand="Brand"
             price="77"
             src="/Products/Image_1.png"
             key={i}
-          />
+          /> 
+          :
+          <VerticalProductItem key={i}
+          pName="Denim"
+          brand="H&M"
+          src="/public/Products/Image_1.png"
+          price="55"
+          offer="10% Off"
+        />
+
+
+
+
+          
+
+
+       
+
+
+
+         
         ))}
     </>
   );
 }
 
-const Paginate = ({ itemsPerPage }) => {
+const Paginate = ({ itemsPerPage,show }) => {
   const [itemOffset, setItemOffset] = useState(0);
 
   // Simulate fetching items from another resources.
@@ -55,7 +86,7 @@ const Paginate = ({ itemsPerPage }) => {
   return (
     <>
       <div className="flex gap-x-10 gap-y-10 flex-wrap ">
-        <Items currentItems={currentItems} />
+        <Items show={show} currentItems={currentItems} />
       </div>
       <div className="flex justify-between items-center my-[50px]">
         <ReactPaginate

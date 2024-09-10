@@ -19,36 +19,35 @@ const Login = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-y-10  gap-x-10 pb-16">
-          <TitleHeader
-            className=" w-full mt-14"
-            headerText="Returning Customer"
-          />
-          <Input
-            className="w-[507px]"
-            labelText="Email address"
-            placeholder="company@domain.com"
-            type="text"
-            id="Email address"
-          />
-          <Input
-            className="w-[507px]"
-            labelText="Password"
-            placeholder="password"
-            type="text"
-            id="Password"
-          />
+        <div className=" border-b border-[#D8D8D8]  pb-16">
+          <div className="flex flex-wrap gap-y-10  gap-x-10 pb-16">
+            <TitleHeader
+              className=" w-full mt-14"
+              headerText="Returning Customer"
+            />
+            <Input
+              className="w-[507px]"
+              labelText="Email address"
+              placeholder="company@domain.com"
+              type="text"
+              id="Email address"
+            />
+            <Input
+              className="w-[507px]"
+              labelText="Password"
+              placeholder="password"
+              type="text"
+              id="Password"
+            />
+          </div>
+          <ButtonLarge ButtonLargeText="Log In" />
         </div>
-       <ButtonLarge ButtonLargeText='Log In' />
 
         <div>
-          <TitleHeader className='mb-32' headerText="New Customer" />
+          <TitleHeader className="mb-32 mt-14" headerText="New Customer" />
 
-          <ButtonLarge ButtonLargeText='Continue' />
-       
+          <ButtonLarge className="mb-36" ButtonLargeText="Continue" />
         </div>
-      
-        
       </Container>
     </div>
   );

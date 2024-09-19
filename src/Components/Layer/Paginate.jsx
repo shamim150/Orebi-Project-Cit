@@ -4,71 +4,45 @@ import ReactPaginate from "react-paginate";
 import ProductsItem from "./ProductsItem";
 import VerticalProductItem from "../VerticalProductItem";
 
-const items = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5,
-  6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5,
-  6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5,
-  6, 7, 8, 9, 10, 11, 12, 13, 14,
-];
+// const items = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+//   11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5,
+//   6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+//   11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5,
+//   6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+//   11, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5,
+//   6, 7, 8, 9, 10, 11, 12, 13, 14,
+// ];
 
-function Items({ currentItems, show }) {
+
+
+const Paginate = ({ itemsPerPage}) => {
+  const [itemOffset, setItemOffset] = useState(0);
+  const [items, setItems] = useState([]);
+
+  useEffect (()=>{
+    const getData = async ()=>{
+
+      const respones = await fetch('https://dummyjson.com/products')
+
+      const data = await respones.json()
+      setItems(data.products);
+    
+    }
+    getData()
+  }, [])
+
+
+
+
+
+
+
+
 
  
-
-
-  return (
-
-
-
-    <>
-      {currentItems &&
-        currentItems.map((item, i) => (
-
-
-            show? 
-            <ProductsItem 
-            pName="Brackers"
-            brand="Brand"
-            price="77"
-            src="/Products/Image_1.png"
-            key={i}
-          /> 
-          :
-          <VerticalProductItem key={i}
-          pName="Denim"
-          brand="H&M"
-          src="/public/Products/Image_1.png"
-          price="55"
-          offer="10% Off"
-        />
-
-
-
-
-          
-
-
-       
-
-
-
-         
-        ))}
-    </>
-  );
-}
-
-const Paginate = ({ itemsPerPage,show }) => {
-  const [itemOffset, setItemOffset] = useState(0);
-
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
   console.log();
   const currentItems = items.slice(itemOffset, endOffset);
@@ -86,7 +60,7 @@ const Paginate = ({ itemsPerPage,show }) => {
   return (
     <>
       <div className="flex gap-x-10 gap-y-10 flex-wrap ">
-        <Items show={show} currentItems={currentItems} />
+        <Items  currentItems={currentItems} />
       </div>
       <div className="flex justify-between items-center my-[50px]">
         <ReactPaginate
@@ -109,5 +83,40 @@ const Paginate = ({ itemsPerPage,show }) => {
     </>
   );
 };
+
+
+
+
+
+let Items=({ currentItems})=> {
+  return (
+    <>
+      {currentItems &&
+        currentItems.map((item, i) => (
+            
+           <>
+            <ProductsItem 
+            pName={item.title}
+            brand={item.brand}
+            price={item.price}
+            src={item.thumbnail}
+            offer={item.discountPercentage}
+            key={i}
+          /> 
+      
+          {/* <VerticalProductItem key={i}
+          pName="Denim"
+          brand="H&M"
+          src="/public/Products/Image_1.png"
+          price="55"
+          offer="10% Off"
+        /> */}
+
+           </>
+
+        ))}
+    </>
+  );
+}
 
 export default Paginate;

@@ -17,7 +17,7 @@ const Li = ({ Name, iconName }) => {
 const ProductsItem = ({ offer, pName, price, brand, src, alt,className }) => {
   return (
     <div className={`w-[370px] ${className}`}>
-      <div className="image h-[370px] bg-slate-600 relative group">
+      <div className="image h-[370px] bg-slate-100 relative group">
         <img className="w-full h-full" src={src} alt={alt} />
 
         <div className="overlay absolute left-0 bottom-0 bg-white/40 w-full py-6 px-7 opacity-0 invisible transition-all duration-300 group-hover:opacity-100 group-hover:visible ">
@@ -39,7 +39,7 @@ const ProductsItem = ({ offer, pName, price, brand, src, alt,className }) => {
 
         {offer && (
           <button className="absolute top-5 left-5 bg-Primary font-DM font-bold text-sm text-white py-2 w-[92px]">
-            {offer}
+            {offer}% Off
           </button>
         )}
       </div>

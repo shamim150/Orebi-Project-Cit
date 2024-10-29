@@ -3,7 +3,7 @@ import TitleHeader from "./TitleHeader";
 import { FaChevronRight } from "react-icons/fa";
 
 const Breadcumb = () => {
-  console.log(window.location.pathname.split("/"));
+  // console.log(window.location.pathname.split("/"));
 
   return (
     <div>

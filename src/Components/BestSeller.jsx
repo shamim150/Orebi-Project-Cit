@@ -23,7 +23,7 @@ const BestSeller = () => {
         {
           // allData.slice(0, 4)
           allData
-            .filter((product, index) => index < 4)
+            .filter((product, index) => index >= 9 && index < 13 )
             .map((item, index) => (
               <ProductsItem
                 key={index}

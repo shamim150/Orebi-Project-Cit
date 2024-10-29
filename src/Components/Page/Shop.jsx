@@ -40,6 +40,18 @@ const Shop = () => {
     setShowNumber(numberCollect);
   };
 
+
+
+
+
+
+
+
+
+
+
+  
+
   return (
     <div>
       <Container className="my-28">
